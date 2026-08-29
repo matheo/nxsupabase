@@ -8,14 +8,18 @@
     "lib": ["es2022"],
     "module": "nodenext",
     "moduleResolution": "nodenext",
+    "esModuleInterop": false,
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
+    "noUncheckedSideEffectImports": false,
     "noUnusedLocals": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["@matheo/source"]
+    "customConditions": ["@matheo/source"],
+    "ignoreDeprecations": "6.0",
+    "types": ["*"]
   }
 }

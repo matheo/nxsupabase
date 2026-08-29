@@ -44,11 +44,11 @@
     "./executors.json": "./executors.json"
   },
   "peerDependencies": {
-    "@nx/devkit": ">=22.3.0"
+    "@nx/devkit": ">=23.1.2"
   },
   "dependencies": {
     "tslib": "^2.3.0",
-    "dotenv": "^16.4.5",
-    "detect-port": "^1.5.1"
+    "dotenv": "16.4.7",
+    "detect-port": "^2.1.0"
   }
 }

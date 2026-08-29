@@ -1,6 +1,6 @@
 import {
-  CreateNodesV2,
-  CreateNodesContextV2,
+  CreateNodes,
+  CreateNodesContext,
   createNodesFromFiles,
   joinPathFragments,
   TargetConfiguration,
@@ -35,7 +35,7 @@ const defaultOptions: Required<NxSupabasePluginOptions> = {
  * createNodesV2 implementation for automatic Supabase project detection.
  * Scans for config.toml files and creates targets for projects containing them.
  */
-export const createNodesV2: CreateNodesV2<NxSupabasePluginOptions> = [
+export const createNodesV2: CreateNodes<NxSupabasePluginOptions> = [
   '**/supabase/config.toml',
   async (configFiles, opts, context) => {
     const options = { ...defaultOptions, ...opts };
@@ -45,7 +45,7 @@ export const createNodesV2: CreateNodesV2<NxSupabasePluginOptions> = [
         createNodesForSupabaseConfig(configFile, options, context),
       configFiles,
       options,
-      context
+      context,
     );
   },
 ];
@@ -53,13 +53,17 @@ export const createNodesV2: CreateNodesV2<NxSupabasePluginOptions> = [
 function createNodesForSupabaseConfig(
   configFile: string,
   options: Required<NxSupabasePluginOptions>,
-  context: CreateNodesContextV2
+  context: CreateNodesContext,
 ): Record<string, { targets: Record<string, TargetConfiguration> }> {
   const supabaseDir = dirname(configFile);
   const projectRoot = dirname(supabaseDir);
 
   // Find the nearest project.json to determine project name
-  const projectJsonPath = join(context.workspaceRoot, projectRoot, 'project.json');
+  const projectJsonPath = join(
+    context.workspaceRoot,
+    projectRoot,
+    'project.json',
+  );
 
   // If no project.json exists at this level, skip (might be workspace-level supabase)
   if (!existsSync(projectJsonPath)) {
