@@ -34,7 +34,7 @@
       }
     },
     {
-      "plugin": "@nxsupabase/supabase",
+      "plugin": "@matheo/supabase",
       "options": {
         "startTargetName": "supabase-start",
         "stopTargetName": "supabase-stop",

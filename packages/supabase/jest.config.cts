@@ -9,7 +9,7 @@ const swcJestConfig = JSON.parse(
 swcJestConfig.swcrc = false;
 
 module.exports = {
-  displayName: '@nxsupabase/supabase',
+  displayName: '@matheo/supabase',
   preset: '../../jest.preset.js',
   testEnvironment: 'node',
   transform: {

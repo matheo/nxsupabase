@@ -8,9 +8,9 @@
 
 Automated migrations, type generation, and local dev setup for Nx monorepos.
 
-[![npm version](https://img.shields.io/npm/v/@nxsupabase/supabase?style=for-the-badge&logo=npm&logoColor=white&color=CB3837)](https://www.npmjs.com/package/@nxsupabase/supabase)
+[![npm version](https://img.shields.io/npm/v/@matheo/supabase?style=for-the-badge&logo=npm&logoColor=white&color=CB3837)](https://www.npmjs.com/package/@matheo/supabase)
 [![License](https://img.shields.io/github/license/nxsupabase/nxsupabase?style=for-the-badge&color=blue)](https://opensource.org/licenses/MIT)
-[![Downloads](https://img.shields.io/npm/dm/@nxsupabase/supabase?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/@nxsupabase/supabase)
+[![Downloads](https://img.shields.io/npm/dm/@matheo/supabase?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/@matheo/supabase)
 [![GitHub Stars](https://img.shields.io/github/stars/nxsupabase/nxsupabase?style=for-the-badge&logo=github&color=yellow)](https://github.com/nxsupabase/nxsupabase)
 
 [Getting Started](#getting-started) · [Features](#features) · [Documentation](#documentation) · [Contributing](#contributing)
@@ -64,7 +64,7 @@ brew install supabase/tap/supabase
 ### Installation
 
 ```bash
-npm install @nxsupabase/supabase --save-dev
+npm install @matheo/supabase --save-dev
 ```
 
 ### Quick Start
@@ -72,7 +72,7 @@ npm install @nxsupabase/supabase --save-dev
 #### 1. Initialize the plugin
 
 ```bash
-nx g @nxsupabase/supabase:init
+nx g @matheo/supabase:init
 ```
 
 This registers the plugin in your `nx.json` and configures target defaults.
@@ -82,7 +82,7 @@ This registers the plugin in your `nx.json` and configures target defaults.
 Run the generator and follow the interactive prompts:
 
 ```bash
-nx g @nxsupabase/supabase:project
+nx g @matheo/supabase:project
 ```
 
 > All generators support interactive prompts - just run the command without flags and you'll be guided through the options.
@@ -109,7 +109,7 @@ This spins up the full Supabase stack locally (PostgreSQL, Auth, Storage, Realti
 #### 4. Create your first migration
 
 ```bash
-nx g @nxsupabase/supabase:migration --project=my-app --name=create_users_table
+nx g @matheo/supabase:migration --project=my-app --name=create_users_table
 ```
 
 #### 5. Generate TypeScript types
@@ -128,11 +128,11 @@ Types are automatically cached by Nx and regenerated only when migrations change
 
 | Generator | Description | Command |
 |-----------|-------------|---------|
-| `init` | Initialize plugin in workspace | `nx g @nxsupabase/supabase:init` |
-| `project` | Add Supabase to a project | `nx g @nxsupabase/supabase:project --project=<name>` |
-| `migration` | Create a database migration | `nx g @nxsupabase/supabase:migration --project=<name> --name=<migration>` |
-| `function` | Create an Edge Function | `nx g @nxsupabase/supabase:function --project=<name> --name=<function> --template=<basic\|crud\|webhook\|x402>` |
-| `seed` | Create a seed file | `nx g @nxsupabase/supabase:seed --project=<name>` |
+| `init` | Initialize plugin in workspace | `nx g @matheo/supabase:init` |
+| `project` | Add Supabase to a project | `nx g @matheo/supabase:project --project=<name>` |
+| `migration` | Create a database migration | `nx g @matheo/supabase:migration --project=<name> --name=<migration>` |
+| `function` | Create an Edge Function | `nx g @matheo/supabase:function --project=<name> --name=<function> --template=<basic\|crud\|webhook\|x402>` |
+| `seed` | Create a seed file | `nx g @matheo/supabase:seed --project=<name>` |
 
 ### Executors
 
@@ -171,7 +171,7 @@ Configure the plugin in `nx.json`:
 {
   "plugins": [
     {
-      "plugin": "@nxsupabase/supabase",
+      "plugin": "@matheo/supabase",
       "options": {
         "startTargetName": "supabase-start",
         "stopTargetName": "supabase-stop",
@@ -226,7 +226,7 @@ const { data: users } = await supabase
 ### Creating an Edge Function
 
 ```bash
-nx g @nxsupabase/supabase:function --project=my-app --name=send-email --template=basic
+nx g @matheo/supabase:function --project=my-app --name=send-email --template=basic
 ```
 
 ```typescript

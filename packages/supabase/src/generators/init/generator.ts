@@ -18,13 +18,13 @@ export async function initGenerator(
 
       const hasPlugin = json.plugins.some(
         (p) =>
-          p === '@nxsupabase/supabase' ||
-          (typeof p === 'object' && p.plugin === '@nxsupabase/supabase')
+          p === '@matheo/supabase' ||
+          (typeof p === 'object' && p.plugin === '@matheo/supabase')
       );
 
       if (!hasPlugin) {
         json.plugins.push({
-          plugin: '@nxsupabase/supabase',
+          plugin: '@matheo/supabase',
           options: {
             startTargetName: 'supabase-start',
             stopTargetName: 'supabase-stop',
@@ -97,7 +97,7 @@ supabase/.temp/
       logger.info('');
       logger.info('Next steps:');
       logger.info(
-        '  1. Run `nx g @nxsupabase/supabase:project --project=<your-app>` to add Supabase to a project'
+        '  1. Run `nx g @matheo/supabase:project --project=<your-app>` to add Supabase to a project'
       );
       logger.info(
         '  2. Run `nx run <your-app>:supabase-start` to start local Supabase'

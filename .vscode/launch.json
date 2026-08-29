@@ -4,9 +4,9 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug @nxsupabase/my-api with Nx",
+      "name": "Debug @matheo/my-api with Nx",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["nx", "serve", "@nxsupabase/my-api"],
+      "runtimeArgs": ["nx", "serve", "@matheo/my-api"],
       "env": {
         "NODE_OPTIONS": "--inspect=9229"
       },

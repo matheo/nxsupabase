@@ -85,44 +85,44 @@
         "build"
       ],
       "options": {
-        "buildTarget": "@nxsupabase/my-api:build",
+        "buildTarget": "@matheo/my-api:build",
         "runBuildTargetDependencies": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "@nxsupabase/my-api:build:development"
+          "buildTarget": "@matheo/my-api:build:development"
         },
         "production": {
-          "buildTarget": "@nxsupabase/my-api:build:production"
+          "buildTarget": "@matheo/my-api:build:production"
         }
       }
     },
     "supabase-start": {
-      "executor": "@nxsupabase/supabase:start",
+      "executor": "@matheo/supabase:start",
       "options": {
         "supabaseDirectory": "apps/my-api/supabase"
       }
     },
     "supabase-stop": {
-      "executor": "@nxsupabase/supabase:stop",
+      "executor": "@matheo/supabase:stop",
       "options": {
         "supabaseDirectory": "apps/my-api/supabase"
       }
     },
     "supabase-status": {
-      "executor": "@nxsupabase/supabase:status",
+      "executor": "@matheo/supabase:status",
       "options": {
         "supabaseDirectory": "apps/my-api/supabase"
       }
     },
     "supabase-db-reset": {
-      "executor": "@nxsupabase/supabase:db-reset",
+      "executor": "@matheo/supabase:db-reset",
       "options": {
         "supabaseDirectory": "apps/my-api/supabase"
       }
     },
     "supabase-gen-types": {
-      "executor": "@nxsupabase/supabase:gen-types",
+      "executor": "@matheo/supabase:gen-types",
       "options": {
         "supabaseDirectory": "apps/my-api/supabase",
         "outputPath": "apps/my-api/src/types/supabase.ts"
@@ -137,19 +137,19 @@
       ]
     },
     "supabase-migrate": {
-      "executor": "@nxsupabase/supabase:migrate",
+      "executor": "@matheo/supabase:migrate",
       "options": {
         "supabaseDirectory": "apps/my-api/supabase"
       }
     },
     "supabase-db-push": {
-      "executor": "@nxsupabase/supabase:db-push",
+      "executor": "@matheo/supabase:db-push",
       "options": {
         "supabaseDirectory": "apps/my-api/supabase"
       }
     },
     "supabase-deploy": {
-      "executor": "@nxsupabase/supabase:deploy",
+      "executor": "@matheo/supabase:deploy",
       "options": {
         "supabaseDirectory": "apps/my-api/supabase"
       }

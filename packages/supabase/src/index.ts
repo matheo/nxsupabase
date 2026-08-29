@@ -82,7 +82,7 @@ function createNodesForSupabaseConfig(
 
   // Start target
   targets[options.startTargetName] = {
-    executor: '@nxsupabase/supabase:start',
+    executor: '@matheo/supabase:start',
     options: {
       supabaseDirectory: supabaseDir,
     },
@@ -90,7 +90,7 @@ function createNodesForSupabaseConfig(
 
   // Stop target
   targets[options.stopTargetName] = {
-    executor: '@nxsupabase/supabase:stop',
+    executor: '@matheo/supabase:stop',
     options: {
       supabaseDirectory: supabaseDir,
     },
@@ -98,7 +98,7 @@ function createNodesForSupabaseConfig(
 
   // Status target
   targets[options.statusTargetName] = {
-    executor: '@nxsupabase/supabase:status',
+    executor: '@matheo/supabase:status',
     options: {
       supabaseDirectory: supabaseDir,
     },
@@ -106,7 +106,7 @@ function createNodesForSupabaseConfig(
 
   // DB Reset target
   targets[options.dbResetTargetName] = {
-    executor: '@nxsupabase/supabase:db-reset',
+    executor: '@matheo/supabase:db-reset',
     options: {
       supabaseDirectory: supabaseDir,
     },
@@ -114,7 +114,7 @@ function createNodesForSupabaseConfig(
 
   // Gen Types target (with caching)
   targets[options.genTypesTargetName] = {
-    executor: '@nxsupabase/supabase:gen-types',
+    executor: '@matheo/supabase:gen-types',
     cache: true,
     options: {
       supabaseDirectory: supabaseDir,
@@ -129,7 +129,7 @@ function createNodesForSupabaseConfig(
 
   // Migrate target
   targets[options.migrateTargetName] = {
-    executor: '@nxsupabase/supabase:migrate',
+    executor: '@matheo/supabase:migrate',
     options: {
       supabaseDirectory: supabaseDir,
     },
@@ -137,7 +137,7 @@ function createNodesForSupabaseConfig(
 
   // DB Push target
   targets[options.dbPushTargetName] = {
-    executor: '@nxsupabase/supabase:db-push',
+    executor: '@matheo/supabase:db-push',
     options: {
       supabaseDirectory: supabaseDir,
     },
@@ -145,7 +145,7 @@ function createNodesForSupabaseConfig(
 
   // Deploy target
   targets[options.deployTargetName] = {
-    executor: '@nxsupabase/supabase:deploy',
+    executor: '@matheo/supabase:deploy',
     options: {
       supabaseDirectory: supabaseDir,
     },

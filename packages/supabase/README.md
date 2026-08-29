@@ -1,11 +1,11 @@
 <div align="center">
 
-# @nxsupabase/supabase
+# @matheo/supabase
 
 **Nx plugin for Supabase** - Automated migrations, type generation, and local dev setup for Nx monorepos.
 
-[![npm version](https://img.shields.io/npm/v/@nxsupabase/supabase?style=flat-square&logo=npm)](https://www.npmjs.com/package/@nxsupabase/supabase)
-[![License](https://img.shields.io/npm/l/@nxsupabase/supabase?style=flat-square)](https://opensource.org/licenses/MIT)
+[![npm version](https://img.shields.io/npm/v/@matheo/supabase?style=flat-square&logo=npm)](https://www.npmjs.com/package/@matheo/supabase)
+[![License](https://img.shields.io/npm/l/@matheo/supabase?style=flat-square)](https://opensource.org/licenses/MIT)
 
 </div>
 
@@ -76,7 +76,7 @@ brew install supabase/tap/supabase
 ## Installation
 
 ```bash
-npm install @nxsupabase/supabase --save-dev
+npm install @matheo/supabase --save-dev
 ```
 
 ---
@@ -86,7 +86,7 @@ npm install @nxsupabase/supabase --save-dev
 ### 1. Initialize the plugin
 
 ```bash
-nx g @nxsupabase/supabase:init
+nx g @matheo/supabase:init
 ```
 
 This registers the plugin in your `nx.json` and sets up target defaults.
@@ -96,7 +96,7 @@ This registers the plugin in your `nx.json` and sets up target defaults.
 Simply run the generator and follow the interactive prompts:
 
 ```bash
-nx g @nxsupabase/supabase:project
+nx g @matheo/supabase:project
 ```
 
 You'll be guided through:
@@ -127,7 +127,7 @@ This starts the local Supabase stack (PostgreSQL, Auth, Storage, Realtime, etc.)
 ### 4. Create migrations
 
 ```bash
-nx g @nxsupabase/supabase:migration --project=my-app --name=create_users_table
+nx g @matheo/supabase:migration --project=my-app --name=create_users_table
 ```
 
 ### 5. Generate TypeScript types
@@ -147,7 +147,7 @@ Types are cached by Nx and only regenerated when migrations change.
 Initialize Supabase plugin in the workspace.
 
 ```bash
-nx g @nxsupabase/supabase:init [options]
+nx g @matheo/supabase:init [options]
 ```
 
 | Option | Type | Default | Description |
@@ -161,7 +161,7 @@ nx g @nxsupabase/supabase:init [options]
 Add Supabase configuration to a project.
 
 ```bash
-nx g @nxsupabase/supabase:project --project=<name> [options]
+nx g @matheo/supabase:project --project=<name> [options]
 ```
 
 | Option | Type | Default | Description |
@@ -180,7 +180,7 @@ nx g @nxsupabase/supabase:project --project=<name> [options]
 Create a new database migration.
 
 ```bash
-nx g @nxsupabase/supabase:migration --project=<name> --name=<migration-name>
+nx g @matheo/supabase:migration --project=<name> --name=<migration-name>
 ```
 
 | Option | Type | Default | Description |
@@ -192,7 +192,7 @@ nx g @nxsupabase/supabase:migration --project=<name> --name=<migration-name>
 **Example:**
 
 ```bash
-nx g @nxsupabase/supabase:migration --project=my-app --name=create_posts_table --sql="CREATE TABLE posts (id uuid PRIMARY KEY DEFAULT gen_random_uuid());"
+nx g @matheo/supabase:migration --project=my-app --name=create_posts_table --sql="CREATE TABLE posts (id uuid PRIMARY KEY DEFAULT gen_random_uuid());"
 ```
 
 ---
@@ -202,7 +202,7 @@ nx g @nxsupabase/supabase:migration --project=my-app --name=create_posts_table -
 Create a new Supabase Edge Function with interactive prompts:
 
 ```bash
-nx g @nxsupabase/supabase:function
+nx g @matheo/supabase:function
 ```
 
 You'll be guided through selecting:
@@ -236,10 +236,10 @@ You'll be guided through selecting:
 
 ```bash
 # Webhook function
-nx g @nxsupabase/supabase:function --name=webhook-handler --template=webhook
+nx g @matheo/supabase:function --name=webhook-handler --template=webhook
 
 # x402 paid endpoint
-nx g @nxsupabase/supabase:function --name=premium-api --template=x402 --paymentAmount=0.05
+nx g @matheo/supabase:function --name=premium-api --template=x402 --paymentAmount=0.05
 ```
 
 #### x402 Payment Template
@@ -247,7 +247,7 @@ nx g @nxsupabase/supabase:function --name=premium-api --template=x402 --paymentA
 The `x402` template creates a payment-required Edge Function using the [x402 protocol](https://x402.org). This enables internet-native micropayments for your API endpoints.
 
 ```bash
-nx g @nxsupabase/supabase:function --project=my-app --name=paid-endpoint --template=x402
+nx g @matheo/supabase:function --project=my-app --name=paid-endpoint --template=x402
 ```
 
 **Setup:**
@@ -267,7 +267,7 @@ nx g @nxsupabase/supabase:function --project=my-app --name=paid-endpoint --templ
 Create a database seed file.
 
 ```bash
-nx g @nxsupabase/supabase:seed --project=<name>
+nx g @matheo/supabase:seed --project=<name>
 ```
 
 | Option | Type | Default | Description |
@@ -445,7 +445,7 @@ Configure the plugin in `nx.json`:
 {
   "plugins": [
     {
-      "plugin": "@nxsupabase/supabase",
+      "plugin": "@matheo/supabase",
       "options": {
         "startTargetName": "supabase-start",
         "stopTargetName": "supabase-stop",

@@ -77,31 +77,31 @@ export async function projectGenerator(
     targets: {
       ...projectConfig.targets,
       'supabase-start': {
-        executor: '@nxsupabase/supabase:start',
+        executor: '@matheo/supabase:start',
         options: {
           supabaseDirectory: supabasePath,
         },
       },
       'supabase-stop': {
-        executor: '@nxsupabase/supabase:stop',
+        executor: '@matheo/supabase:stop',
         options: {
           supabaseDirectory: supabasePath,
         },
       },
       'supabase-status': {
-        executor: '@nxsupabase/supabase:status',
+        executor: '@matheo/supabase:status',
         options: {
           supabaseDirectory: supabasePath,
         },
       },
       'supabase-db-reset': {
-        executor: '@nxsupabase/supabase:db-reset',
+        executor: '@matheo/supabase:db-reset',
         options: {
           supabaseDirectory: supabasePath,
         },
       },
       'supabase-gen-types': {
-        executor: '@nxsupabase/supabase:gen-types',
+        executor: '@matheo/supabase:gen-types',
         options: {
           supabaseDirectory: supabasePath,
           outputPath: joinPathFragments(projectRoot, 'src', 'types', 'supabase.ts'),
@@ -114,19 +114,19 @@ export async function projectGenerator(
         outputs: ['{projectRoot}/src/types/supabase.ts'],
       },
       'supabase-migrate': {
-        executor: '@nxsupabase/supabase:migrate',
+        executor: '@matheo/supabase:migrate',
         options: {
           supabaseDirectory: supabasePath,
         },
       },
       'supabase-db-push': {
-        executor: '@nxsupabase/supabase:db-push',
+        executor: '@matheo/supabase:db-push',
         options: {
           supabaseDirectory: supabasePath,
         },
       },
       'supabase-deploy': {
-        executor: '@nxsupabase/supabase:deploy',
+        executor: '@matheo/supabase:deploy',
         options: {
           supabaseDirectory: supabasePath,
         },

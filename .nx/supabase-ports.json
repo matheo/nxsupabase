@@ -1,6 +1,6 @@
 {
   "projects": {
-    "@nxsupabase/my-api": {
+    "@matheo/my-api": {
       "dbPort": 55142,
       "apiPort": 55141,
       "studioPort": 55143,
