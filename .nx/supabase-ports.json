@@ -1,6 +1,6 @@
 {
   "projects": {
-    "@nx-supabase/my-api": {
+    "@nxsupabase/my-api": {
       "dbPort": 55142,
       "apiPort": 55141,
       "studioPort": 55143,

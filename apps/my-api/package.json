@@ -1,7 +1,8 @@
 {
-  "name": "@nx-supabase/my-api",
+  "name": "@nxsupabase/my-api",
   "version": "0.0.1",
   "private": true,
+  "dependencies": {},
   "nx": {
     "targets": {
       "build": {
@@ -83,15 +84,15 @@
           "build"
         ],
         "options": {
-          "buildTarget": "@nx-supabase/my-api:build",
+          "buildTarget": "@nxsupabase/my-api:build",
           "runBuildTargetDependencies": false
         },
         "configurations": {
           "development": {
-            "buildTarget": "@nx-supabase/my-api:build:development"
+            "buildTarget": "@nxsupabase/my-api:build:development"
           },
           "production": {
-            "buildTarget": "@nx-supabase/my-api:build:production"
+            "buildTarget": "@nxsupabase/my-api:build:production"
           }
         }
       },
@@ -153,6 +154,5 @@
         }
       }
     }
-  },
-  "dependencies": {}
+  }
 }

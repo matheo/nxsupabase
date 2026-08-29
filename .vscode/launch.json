@@ -4,9 +4,9 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug @nx-supabase/my-api with Nx",
+      "name": "Debug @nxsupabase/my-api with Nx",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["nx", "serve", "@nx-supabase/my-api"],
+      "runtimeArgs": ["nx", "serve", "@nxsupabase/my-api"],
       "env": {
         "NODE_OPTIONS": "--inspect=9229"
       },

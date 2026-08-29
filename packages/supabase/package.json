@@ -30,13 +30,21 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "@nx-supabase/source": "./src/index.ts",
+      "@nxsupabase/source": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
     "./generators.json": "./generators.json",
     "./executors.json": "./executors.json"
+  },
+  "peerDependencies": {
+    "@nx/devkit": ">=18.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0",
+    "dotenv": "^16.4.5",
+    "detect-port": "^1.5.1"
   },
   "nx": {
     "targets": {
@@ -74,13 +82,5 @@
         }
       }
     }
-  },
-  "peerDependencies": {
-    "@nx/devkit": ">=18.0.0"
-  },
-  "dependencies": {
-    "tslib": "^2.3.0",
-    "dotenv": "^16.3.0",
-    "detect-port": "^1.5.1"
   }
 }
