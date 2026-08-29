@@ -1,8 +1,6 @@
 import { Tree, readJson, writeJson } from '@nx/devkit';
 import { createHash } from 'crypto';
-
-const detectPort = require('detect-port') as (port: number) => Promise<number>;
-
+import { detect } from 'detect-port';
 export interface PortConfig {
   dbPort: number;
   apiPort: number;
@@ -58,7 +56,7 @@ function calculatePorts(projectName: string): PortConfig {
  * Find next available port starting from a given port
  */
 async function findAvailablePort(startPort: number): Promise<number> {
-  return detectPort(startPort);
+  return detect(startPort);
 }
 
 /**
