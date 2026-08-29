@@ -1,3 +1,13 @@
+## 23.1.2 (2026-08-29)
+
+### 🚀 Features
+
+- build: nx migrate latest ([79728f1](https://github.com/matheo/nxsupabase/commit/79728f1))
+
+### ❤️ Thank You
+
+- Mateo Tibaquira
+
 ## 0.2.1 (2026-08-29)
 
 ### 🚀 Features
