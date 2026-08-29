@@ -22,6 +22,11 @@
     "payments",
     "micropayments"
   ],
+  "files": [
+    "dist",
+    "executors.json",
+    "generators.json"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -45,42 +50,5 @@
     "tslib": "^2.3.0",
     "dotenv": "^16.4.5",
     "detect-port": "^1.5.1"
-  },
-  "nx": {
-    "targets": {
-      "build": {
-        "executor": "@nx/js:tsc",
-        "outputs": ["{options.outputPath}"],
-        "options": {
-          "outputPath": "packages/supabase/dist",
-          "main": "packages/supabase/src/index.ts",
-          "tsConfig": "packages/supabase/tsconfig.lib.json",
-          "rootDir": "packages/supabase/src",
-          "generatePackageJson": false,
-          "assets": [
-            {
-              "input": "./packages/supabase/src",
-              "glob": "**/!(*.ts)",
-              "output": "."
-            },
-            {
-              "input": "./packages/supabase/src",
-              "glob": "**/*.d.ts",
-              "output": "."
-            },
-            {
-              "input": "./packages/supabase",
-              "glob": "generators.json",
-              "output": "."
-            },
-            {
-              "input": "./packages/supabase",
-              "glob": "executors.json",
-              "output": "."
-            }
-          ]
-        }
-      }
-    }
   }
 }

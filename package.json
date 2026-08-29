@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "npx nx serve @nxsupabase/my-api",
-    "build": "npx nx run-many -t build"
+    "start": "npx nx serve api",
+    "build": "npx nx run-many -t build",
+    "release": "npx nx release"
   },
   "private": true,
   "devDependencies": {

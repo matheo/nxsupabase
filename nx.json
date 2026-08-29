@@ -66,5 +66,11 @@
       ],
       "outputs": ["{projectRoot}/src/types/supabase.ts"]
     }
+  },
+  "release": {
+    "projects": ["supabase"],
+    "version": {
+      "preVersionCommand": "npx nx run-many -t build"
+    }
   }
 }

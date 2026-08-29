@@ -1,0 +1,33 @@
+{
+  "name": "supabase",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "prefix": "sb",
+  "sourceRoot": "packages/supabase/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "packages/supabase/dist",
+        "main": "packages/supabase/src/index.ts",
+        "tsConfig": "packages/supabase/tsconfig.lib.json",
+        "rootDir": "packages/supabase/src",
+        "generatePackageJson": false,
+        "assets": [
+          {
+            "input": "packages/supabase/src",
+            "glob": "**/!(*.ts)",
+            "output": "."
+          },
+          {
+            "input": "packages/supabase/src",
+            "glob": "**/*.d.ts",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}
