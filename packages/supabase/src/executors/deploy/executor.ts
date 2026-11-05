@@ -26,14 +26,16 @@ export async function deployExecutor(
   const env = loadEnvFile(workdir);
 
   try {
-    const projectFlag = options.projectRef ? `--project-ref=${options.projectRef}` : '';
+    // CLI v3 targets the local database by default; --remote selects the linked project
+    const remoteFlag = options.projectRef ? `--remote=${options.projectRef}` : '--remote';
+    const yesFlag = options.yes ? '--yes' : '';
 
     // Push migrations first
     if (options.pushMigrations !== false) {
       logger.info('Pushing migrations to remote...');
 
       const dbPushResult = await runSupabaseCommandAsync(
-        `db push ${projectFlag}`,
+        `db push ${remoteFlag} ${yesFlag}`.trim(),
         { cwd: workdir, env }
       );
 
@@ -60,10 +62,11 @@ export async function deployExecutor(
         for (const fn of functionsToDeply) {
           logger.info(`Deploying function: ${fn}...`);
 
+          const projectFlag = options.projectRef ? `--remote=${options.projectRef}` : '';
           const noVerifyFlag = options.noVerifyJwt ? '--no-verify-jwt' : '';
 
           const result = await runSupabaseCommandAsync(
-            `functions deploy ${fn} ${projectFlag} ${noVerifyFlag}`.trim(),
+            `functions deploy ${fn} ${projectFlag} ${noVerifyFlag} ${yesFlag}`.replace(/\s+/g, ' ').trim(),
             { cwd: workdir, env }
           );
 

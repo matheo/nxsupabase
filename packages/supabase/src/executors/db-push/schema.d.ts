@@ -4,4 +4,5 @@ export interface DbPushExecutorSchema {
   linkedProject?: string;
   password?: string;
   includeSeed?: boolean;
+  yes?: boolean;
 }

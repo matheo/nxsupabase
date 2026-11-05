@@ -369,7 +369,7 @@ nx run my-app:supabase-migrate
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
 | `target` | `string` | `local` | Target: `local`, `remote` |
-| `dryRun` | `boolean` | `false` | Preview without applying |
+| `yes` | `boolean` | `false` | Answer yes to CLI prompts (needed for remote targets in CI) |
 
 ---
 
@@ -386,6 +386,8 @@ nx run my-app:supabase-db-push
 | `dryRun` | `boolean` | Preview SQL without applying |
 | `linkedProject` | `string` | Project ref override |
 | `includeSeed` | `boolean` | Include seed data |
+| `password` | `string` | Database password (`SUPABASE_DB_PASSWORD` only applies to the linked project) |
+| `yes` | `boolean` | Answer yes to CLI prompts (needed in CI) |
 
 ---
 
@@ -403,6 +405,8 @@ nx run my-app:supabase-deploy
 | `functions` | `string[]` | all | Specific functions to deploy |
 | `deployFunctions` | `boolean` | `true` | Deploy Edge Functions |
 | `pushMigrations` | `boolean` | `true` | Push migrations |
+| `noVerifyJwt` | `boolean` | `false` | Deploy functions without JWT verification |
+| `yes` | `boolean` | `false` | Answer yes to CLI prompts (needed in CI) |
 
 ---
 
@@ -414,7 +418,7 @@ Serve Edge Functions locally for development.
 nx run my-app:supabase-functions-serve
 ```
 
-This starts a local server for testing Edge Functions with hot reload.
+This starts a local server for testing Edge Functions with hot reload. Supabase CLI v3 always serves every function, so there is no option to select specific ones.
 
 ---
 

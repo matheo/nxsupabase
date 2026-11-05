@@ -8,11 +8,6 @@
       "type": "string",
       "description": "Path to supabase directory"
     },
-    "functions": {
-      "type": "array",
-      "items": { "type": "string" },
-      "description": "Specific functions to serve (serves all if not specified)"
-    },
     "noVerifyJwt": {
       "type": "boolean",
       "description": "Serve functions without JWT verification",

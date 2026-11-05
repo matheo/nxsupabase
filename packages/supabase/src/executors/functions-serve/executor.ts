@@ -35,11 +35,6 @@ export async function functionsServeExecutor(
       args.push('--debug');
     }
 
-    // Add specific functions if provided
-    if (options.functions?.length) {
-      args.push(...options.functions);
-    }
-
     const result = await runSupabaseCommandAsync(args.join(' '), {
       cwd: workdir,
       env,

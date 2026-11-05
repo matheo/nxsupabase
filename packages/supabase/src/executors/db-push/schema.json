@@ -19,11 +19,16 @@
     },
     "password": {
       "type": "string",
-      "description": "Database password (uses SUPABASE_DB_PASSWORD env var if not provided)"
+      "description": "Database password (uses SUPABASE_DB_PASSWORD env var if not provided; the env var only applies to the linked project)"
     },
     "includeSeed": {
       "type": "boolean",
       "description": "Include seed data after push",
+      "default": false
+    },
+    "yes": {
+      "type": "boolean",
+      "description": "Answer yes to all CLI prompts (required for hosted changes in non-interactive runs such as CI)",
       "default": false
     }
   },

@@ -33,21 +33,18 @@ export async function genTypesExecutor(
     logger.info('Generating TypeScript types...');
 
     // Build command
-    const args: string[] = ['gen', 'types', 'typescript'];
+    const args: string[] = ['gen', 'types', '--lang=typescript'];
 
+    // CLI v3 targets the local database by default; --remote selects the linked project or a URL
     if (options.source === 'linked') {
-      args.push('--linked');
+      args.push('--remote');
     } else if (options.source === 'db-url' && options.dbUrl) {
-      args.push(`--db-url="${options.dbUrl}"`);
-    } else {
-      args.push('--local');
+      args.push(`--remote="${options.dbUrl}"`);
     }
 
-    // Add schemas
+    // Add schemas (comma separated list)
     const schemas = options.schemas || ['public'];
-    schemas.forEach((schema) => {
-      args.push(`--schema=${schema}`);
-    });
+    args.push(`--schema=${schemas.join(',')}`);
 
     const { stdout, stderr } = await runSupabaseCommand(args.join(' '), {
       cwd: workdir,

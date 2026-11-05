@@ -5,4 +5,5 @@ export interface DeployExecutorSchema {
   deployFunctions?: boolean;
   pushMigrations?: boolean;
   noVerifyJwt?: boolean;
+  yes?: boolean;
 }

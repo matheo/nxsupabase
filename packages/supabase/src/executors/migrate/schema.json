@@ -14,9 +14,9 @@
       "description": "Target database for migrations",
       "default": "local"
     },
-    "dryRun": {
+    "yes": {
       "type": "boolean",
-      "description": "Show SQL that would be executed without applying",
+      "description": "Answer yes to all CLI prompts (required for hosted changes in non-interactive runs such as CI)",
       "default": false
     }
   },

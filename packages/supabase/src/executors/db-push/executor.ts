@@ -19,12 +19,20 @@ export async function dbPushExecutor(
       args.push('--dry-run');
     }
 
-    if (options.linkedProject) {
-      args.push(`--project-ref=${options.linkedProject}`);
-    }
+    // CLI v3 targets the local database by default; --remote selects the linked project
+    args.push(options.linkedProject ? `--remote=${options.linkedProject}` : '--remote');
 
     if (options.includeSeed) {
       args.push('--include-seed');
+    }
+
+    // CLI v3 ignores SUPABASE_DB_PASSWORD and the project .env for an ad-hoc project ref
+    if (options.password && options.linkedProject) {
+      args.push(`--password=${options.password}`);
+    }
+
+    if (options.yes) {
+      args.push('--yes');
     }
 
     const result = await runSupabaseCommandAsync(args.join(' '), {

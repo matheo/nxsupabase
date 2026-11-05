@@ -28,7 +28,11 @@ export async function migrateExecutor(
     const args: string[] = ['migration', 'up'];
 
     if (isRemote) {
-      args.push('--linked');
+      args.push('--remote');
+    }
+
+    if (options.yes) {
+      args.push('--yes');
     }
 
     const result = await runSupabaseCommandAsync(args.join(' '), {
