@@ -122,7 +122,7 @@ function createNodesForSupabaseConfig(
     cache: true,
     options: {
       supabaseDirectory: supabaseDir,
-      outputPath: joinPathFragments(projectRoot, 'src/types/supabase.ts'),
+      outputPath: 'src/types/supabase.ts',
     },
     inputs: [
       joinPathFragments('{projectRoot}', 'supabase/migrations/**/*'),

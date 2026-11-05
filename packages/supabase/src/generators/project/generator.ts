@@ -104,7 +104,7 @@ export async function projectGenerator(
         executor: '@matheo/supabase:gen-types',
         options: {
           supabaseDirectory: supabasePath,
-          outputPath: joinPathFragments(projectRoot, 'src', 'types', 'supabase.ts'),
+          outputPath: 'src/types/supabase.ts',
         },
         cache: true,
         inputs: [

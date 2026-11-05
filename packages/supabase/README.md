@@ -61,13 +61,13 @@ Before using this plugin, ensure you have:
 
 - **Node.js** 18+ installed
 - **Docker Desktop** installed and running - [Download](https://www.docker.com/products/docker-desktop/)
-- **Supabase CLI** installed globally:
+- **Supabase CLI** v3+ installed:
 
 ```bash
 # Via npm
-npm install -g supabase
+npm install -g supabase@^3
 
-# Via Homebrew (macOS)
+# Via Homebrew
 brew install supabase/tap/supabase
 ```
 
@@ -352,7 +352,7 @@ nx run my-app:supabase-gen-types
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
 | `supabaseDirectory` | `string` | - | Path to supabase directory |
-| `outputPath` | `string` | `src/types/supabase.ts` | Output file path |
+| `outputPath` | `string` | `src/types/supabase.ts` | Output file path, relative to the project root |
 | `source` | `string` | `local` | Source: `local`, `linked`, `db-url` |
 | `schemas` | `string[]` | `["public"]` | Schemas to include |
 
@@ -458,8 +458,7 @@ Configure the plugin in `nx.json`:
         "dbResetTargetName": "supabase-db-reset",
         "migrateTargetName": "supabase-migrate",
         "dbPushTargetName": "supabase-db-push",
-        "deployTargetName": "supabase-deploy",
-        "functionsServeTargetName": "supabase-functions-serve"
+        "deployTargetName": "supabase-deploy"
       }
     }
   ]
@@ -476,7 +475,7 @@ The plugin automatically detects projects with `supabase/config.toml` and adds a
 
 1. Plugin scans for `**/supabase/config.toml` files
 2. Matches each config to its parent Nx project
-3. Automatically registers all executor targets
+3. Automatically registers the executor targets (all except `functions-serve`, which you add manually)
 4. Sets up proper caching and dependencies
 
 ---
@@ -495,8 +494,7 @@ The plugin loads environment variables from (in order of priority):
 | Variable | Description |
 |----------|-------------|
 | `SUPABASE_ACCESS_TOKEN` | For deployment authentication |
-| `SUPABASE_DB_PASSWORD` | Remote database password |
-| `SUPABASE_PROJECT_REF` | Remote project reference |
+| `SUPABASE_DB_PASSWORD` | Database password of the linked project (ignored when targeting another project ref) |
 
 ---
 

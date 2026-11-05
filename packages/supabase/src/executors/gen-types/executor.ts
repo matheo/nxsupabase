@@ -12,7 +12,7 @@ export async function genTypesExecutor(
   const workdir = resolveSupabasePath(options.supabaseDirectory, context);
   const env = loadEnvFile(workdir);
 
-  // Resolve output path
+  // Resolve output path relative to the project root
   const projectRoot =
     context.projectsConfigurations?.projects[context.projectName || '']?.root || '';
   const outputPath = isAbsolute(options.outputPath)

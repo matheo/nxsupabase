@@ -51,13 +51,13 @@ Before you begin, ensure you have:
 
 - [Node.js](https://nodejs.org/) 18+ installed
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running
-- [Supabase CLI](https://supabase.com/docs/guides/cli) installed:
+- [Supabase CLI](https://supabase.com/docs/guides/cli) **v3+** installed:
 
 ```bash
 # Via npm
-npm install -g supabase
+npm install -g supabase@^3
 
-# Or via Homebrew (macOS)
+# Or via Homebrew
 brew install supabase/tap/supabase
 ```
 
@@ -118,7 +118,7 @@ nx g @matheo/supabase:migration --project=my-app --name=create_users_table
 nx run my-app:supabase-gen-types
 ```
 
-Types are automatically cached by Nx and regenerated only when migrations change.
+Types are cached by Nx and regenerated only when migrations or `config.toml` change.
 
 ---
 
@@ -143,10 +143,14 @@ Types are automatically cached by Nx and regenerated only when migrations change
 | `supabase-status` | Show status and URLs | `nx run <project>:supabase-status` |
 | `supabase-db-reset` | Reset database | `nx run <project>:supabase-db-reset` |
 | `supabase-gen-types` | Generate TS types | `nx run <project>:supabase-gen-types` |
-| `supabase-migrate` | Run migrations | `nx run <project>:supabase-migrate` |
-| `supabase-db-push` | Push to remote | `nx run <project>:supabase-db-push` |
-| `supabase-deploy` | Deploy to cloud | `nx run <project>:supabase-deploy` |
-| `supabase-functions-serve` | Serve functions locally | `nx run <project>:supabase-functions-serve` |
+| `supabase-migrate` | Apply pending migrations (local or remote) | `nx run <project>:supabase-migrate` |
+| `supabase-db-push` | Push migrations to the remote project | `nx run <project>:supabase-db-push` |
+| `supabase-deploy` | Push migrations and deploy Edge Functions | `nx run <project>:supabase-deploy` |
+| `functions-serve`* | Serve all Edge Functions locally | `nx run <project>:<your-target>` |
+
+\* Not inferred automatically: add a target using the `@matheo/supabase:functions-serve` executor to your `project.json`.
+
+Executors that reach the hosted project (`supabase-db-push`, `supabase-deploy`, and `supabase-migrate` with `target: remote`) accept a `yes` option to answer CLI prompts in CI. See the [package README](packages/supabase/README.md) for every option.
 
 ### Multi-Project Support
 
@@ -196,8 +200,7 @@ Common variables:
 | Variable | Description |
 |----------|-------------|
 | `SUPABASE_ACCESS_TOKEN` | Authentication for deployment |
-| `SUPABASE_DB_PASSWORD` | Remote database password |
-| `SUPABASE_PROJECT_REF` | Remote project reference |
+| `SUPABASE_DB_PASSWORD` | Database password of the linked project (ignored when targeting another project ref) |
 
 ---
 
@@ -252,7 +255,12 @@ npx supabase link --project-ref your-project-ref
 
 # Deploy everything
 nx run my-app:supabase-deploy
+
+# In CI (non-interactive), confirm the hosted changes up front
+nx run my-app:supabase-deploy --yes
 ```
+
+> Supabase CLI v3 targets the local database by default. The `supabase-db-push` and `supabase-deploy` executors always pass `--remote`, so they reach the linked project, or the one set with `linkedProject` / `projectRef`.
 
 ---
 

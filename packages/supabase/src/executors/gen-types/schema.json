@@ -10,7 +10,7 @@
     },
     "outputPath": {
       "type": "string",
-      "description": "Output path for generated types file",
+      "description": "Output path for the generated types file, relative to the project root",
       "default": "src/types/supabase.ts"
     },
     "source": {
