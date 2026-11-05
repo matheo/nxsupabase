@@ -1,11 +1,11 @@
 {
-  "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "extends": "nx/presets/npm.json",
   "pluginsConfig": {
     "@nx/js": {
       "analyzeSourceFiles": true
     }
   },
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "extends": "nx/presets/npm.json",
   "plugins": [
     {
       "plugin": "@nx/js/typescript",
@@ -73,5 +73,8 @@
       "preVersionCommand": "npx nx run-many -t build"
     }
   },
-  "analytics": true
+  "analytics": true,
+  "affected": {
+    "legacy": true
+  }
 }
